@@ -526,7 +526,7 @@ class WP_REST_Comments_Controller extends WP_REST_Controller {
 
 		$prepared_args = array(
 			'number'  => $request['per_page'],
-			'post_id' => $request['post'] ? $request['post'] : '',
+			'post_id' => $request['post_id'] ? $request['post_id'] : '',
 			'parent'  => isset( $request['parent'] ) ? $request['parent'] : '',
 			'search'  => $request['search'],
 			'orderby' => $this->normalize_query_param( $order_by ),

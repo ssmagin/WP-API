@@ -82,7 +82,7 @@ class WP_REST_Terms_Controller extends WP_REST_Controller {
 			}
 		}
 
-		$query_result = get_terms( $this->taxonomy, $prepared_args );
+		$query_result = empty($request['post']) ? get_terms( $this->taxonomy, $prepared_args ) : wp_get_object_terms($request['post'], $this->taxonomy, $prepared_args);
 		$response = array();
 		foreach ( $query_result as $term ) {
 			$data = $this->prepare_item_for_response( $term, $request );
